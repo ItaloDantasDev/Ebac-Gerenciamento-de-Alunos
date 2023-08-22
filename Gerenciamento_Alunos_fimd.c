@@ -106,41 +106,71 @@ int main(){
 
     int opcao = 0;
     int laco = 1;
+    
 
-    for(laco=1;laco=1;){
-
+    while (laco == 1)
+    {
+        char senha_digitada[10]="a";
+        int comparacao;
+        
         printf("\n### Cartorio da Ebac ###\n\n");
-        printf("Escolha a opcao: \n\n");
-        printf("\t1 - Registrar nomes: \n"); // \t = Tab
-        printf("\t2 - Consultar nomes: \n");
-        printf("\t3 - Deletar nomes: \n");
-        printf("Opcao: \n");
+        printf("Login de Adm! \n\nDigite a senha: ");
 
-        scanf("%d", &opcao);
+        scanf("%s", senha_digitada);
+        comparacao = strcmp(senha_digitada,"admin");
 
-        system("cls"); // Limpar Terminal
+        
+        
+        if(comparacao == 0){
+            printf("Acesso permitido!\nSeja bem vindo");
+            break;   
+        }
+        else{
+            printf("Senha incorreta");
+        }
+    }
+   
+        for(laco=1;laco=1;){
 
-        switch(opcao)
-        {
-            case 1:
-            registro();
-            break;
+            printf("\n### Cartorio da Ebac ###\n\n");
+            printf("Escolha a opcao: \n\n");
+            printf("\t1 - Registrar nomes: \n"); // \t = Tab
+            printf("\t2 - Consultar nomes: \n");
+            printf("\t3 - Deletar nomes: \n");
+            printf("\t4 - Sair: \n");
+            printf("Opcao: \n");
 
-            case 2:
-            consulta();
-            break;
+            scanf("%d", &opcao);
 
-            case 3:
-            deleta();
-            break;
+            system("cls"); // Limpar Terminal
 
-            default:
-            printf("Indisponivel");
-            system("pause");
-            break;
+            switch(opcao)
+            {
+                case 1:
+                registro();
+                break;
+
+                case 2:
+                consulta();
+                break;
+
+                case 3:
+                deleta();
+                break;
+
+                case 4:
+                printf("Obrigado por utilizar o sistema!\n");
+                return 0;
+                break;
+
+                default:
+                printf("Indisponivel");
+                system("pause");
+                break;
+            }
+
         }
 
-    }
 
     return 0;
 }
